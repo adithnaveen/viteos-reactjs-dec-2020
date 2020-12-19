@@ -1,0 +1,105 @@
+ReactJS 
+
+naveenks.com 
+
+Vivek - already worked with Angular, new to react, + looking for Testing.
+Saad - worked with JS + React 
+Akshay - worked on AngularJS / Anuglar - new to react 
+Ankit - 
+Sivan - JS, Angular, KnockOut, new React
+Girish - worked on Angular / JS, how react will work with Redux, and use cases 
+Ankita Singh - have worked with angular, JS, node, work with react with best practices 
+				invoke Rest points, Routes 
+Arun - worked in Angular, new to react 
+Chintan - Worked on AngularJS and new to react.
+Deepthi krishna - JS, Angular , new to react 
+Harsh - worked on JS, jQuery,  new to react 
+Manoj -  new to react, have got idea on angular 
+Akhil - have knowledge of react, 
+Nabeel - worked on angular js / angular, to know work flow of react 
+Ravi -  worked on angular js new to react 
+Jeevan - 
+Ananth - 
+Arun - 
+Ankit = Worked on JS and basic of AngularJS. New to React
+Naga Sai akhil - I  have a little knowledge on react, need to know how the react will work with redux and main use cases, MVC project with react, mainly routing and component life cycle
+
+
+
+ES6 - 
+
+NodeJS - https://nodejs.org/en/download/
+VS Code - https://code.visualstudio.com/download
+
+
+// 3 ways of exporting 
+1. export mywork; 
+2. export default mywork; - only 1 function 
+3. export = {mywork, mywork1, mywork2}; 
+
+
+// 3 ways of importing 
+1. import {mywork} from './mywork'; 
+2. import mywork from 'mywork' 
+3. import * as mywork from './mywork'; 
+   import mywork from './mywork'; 
+
+
+
+const map1 = array1.map(x => x * 2);
+
+map(arg) {return decorated(arg)}
+
+
+
+
+http://es6-features.org/#Constants
+https://es6.io
+https://kangax.github.io/compat-table/es6/
+
+
+
+.js / .jsx 
+
+react - redux 
+
+test 
+	.js
+reducers 
+	.js
+action
+	.js
+component
+	.js 
+.html
+
+
+
+if you want to load in different browser 
+
+
+package.json 
+"scripts": {
+  "start": "BROWSER=firefox react-scripts start"
+},
+
+> npm/npx create-react-app app-name
+> npm start 
+
+
+when evern state is mutated the render is called... 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
