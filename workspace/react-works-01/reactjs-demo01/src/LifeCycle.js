@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import CounterApp from './components/CounterApp'
 
 class LifeCycle extends Component {
-    state = { showComponent:false }
+    state = { showComponent:false, title:"Counter App v1.0" }
     render() {
         let output = null; 
         if(this.state.showComponent===true) {
-            output =<CounterApp /> 
+            output =<CounterApp title={this.state.title} /> 
         }
         return (
             <div className="container">
@@ -17,6 +17,18 @@ class LifeCycle extends Component {
                         this.setState({showComponent: !this.state.showComponent})
                     }}
                 >Show/Hide CounterApp</button>
+               <button 
+                    className="btn btn-secondary"
+                    onClick={() => {
+                       if(this.state.title==="Counter App v1.0") {
+                           this.setState({title:"Counter App v2.0"})
+                       }else {
+                           this.setState({title:"Counter App v1.0"})
+                       }
+                    }}
+                >Toggle</button>
+
+
 
                 {output}
             </div>

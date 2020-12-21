@@ -2,8 +2,10 @@ import ReactDOM from 'react-dom'
 
 // import App1 from './App1';
 
-import LifeCycle from './LifeCycle';
+// import LifeCycle from './LifeCycle';
 
-ReactDOM.render(<LifeCycle/>, document.getElementById('root'));
+import ContactsAppArray from './ContactsAppArray'; 
+
+ReactDOM.render(<ContactsAppArray/>, document.getElementById('root'));
 
 

@@ -18,7 +18,7 @@ class CounterApp extends Component {
         console.log("CounterApp.render() called");
         return (
             <div>
-                <h3>Counter App</h3>
+                <h3>{this.props.title}</h3>
                 <p>Value of Count is {this.state.count} </p>
                 <p>Value of Num is {this.num} </p>
                 <button 

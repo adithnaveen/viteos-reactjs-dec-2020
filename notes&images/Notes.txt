@@ -117,13 +117,13 @@ class Bye extends Component {
 
 
 React Life Cycle 
-
 https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 
+Data 
+https://www.mockaroo.com/
 
-
-
-
+Images 
+https://randomuser.me/api/portraits/men/6.jpg
 
 
 
