@@ -1,8 +1,9 @@
 import ReactDOM from 'react-dom'
 
-import App1 from './App1';
+// import App1 from './App1';
 
+import LifeCycle from './LifeCycle';
 
-ReactDOM.render(<App1/>, document.getElementById('root'));
+ReactDOM.render(<LifeCycle/>, document.getElementById('root'));
 
 

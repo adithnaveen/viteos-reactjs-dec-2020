@@ -93,3 +93,43 @@ when ever state is mutated the render is called...
 
 
 
+
+
+
+
+class Hi extends Component {
+ render (  
+		<div>
+		 	<h2>hi</h2> 
+			<h3>bye</h3>
+		</div>
+ )
+}
+
+class Bye extends Component {
+ render (  
+		<div>
+		 	<h2>hi</h2> 
+			<h3>bye</h3>
+		</div>
+ )
+}
+
+
+React Life Cycle 
+
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -118,11 +118,11 @@ class ProductFormCtrl extends Component {
                                  value={this.state.pname}
                                  name="pname" 
                                  type="text" 
-                                 onChange={this.tfHander} 
+                                 onChange= {() => {this.tfHander()}} 
                                  className="form-control" />
                         </div>
                     </div>
-                    
+
 
                     <div className="form-group row">
                         <label className="control-label col-md-4">Product Price</label>
