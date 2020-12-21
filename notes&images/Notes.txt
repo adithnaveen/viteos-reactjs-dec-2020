@@ -87,18 +87,8 @@ package.json
 > npm start 
 
 
-when evern state is mutated the render is called... 
-
-
-
-
-
-
-
-
-
-
-
+when ever state is mutated the render is called... 
+ 
 
 
 
