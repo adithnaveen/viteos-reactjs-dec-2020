@@ -12,4 +12,7 @@ const ContactListHOC =({contacts}) => {
 
 }
 
-export default loading(ContactListHOC); 
+export default loading('contacts')(ContactListHOC);  
+
+
+// const loading = (property) => OldComponent => (props) => {return the value }

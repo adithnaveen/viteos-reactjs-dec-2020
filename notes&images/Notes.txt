@@ -127,6 +127,31 @@ https://randomuser.me/api/portraits/men/6.jpg
 
 
 
+1. Life cycle in React Component 
+2. How to call a component from another component 
+3. Contact card / Contant List calling 1 card from the array 
+
+
+
+Ajax call from the end point 
+1. copy the data from db/data.json 
+2. install json server 
+	npm i json-server 
+3. open package.json 
+	script {
+		..... , 
+		"rest-server": "json-server --port=4000 --watch db/data.json"
+	}
+4. npm run rest-server
+
+ 
+
+
+
+
+
+
+
 
 
 

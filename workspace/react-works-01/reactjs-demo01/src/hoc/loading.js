@@ -30,15 +30,13 @@ function isEmpty(data){
     return false; 
 }
 
-const loading = (OldComponent) =>  {
-
-    return  (props) => {
+const loading = (property) => (OldComponent) => (props) => {
             let output =  <OldComponent {...props} /> 
-
-            if(isEmpty(props.contacts)) {
+ 
+            console.log("Propertye " , props[property]);
+            if(isEmpty(props[property])) {
                 output =<p className="text-center">Loading... Please wait... </p>
             }
             return output; 
-        }
 }
 export default loading; 

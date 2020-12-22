@@ -18,9 +18,17 @@ class AppHOC extends Component {
             <div>
                 <h1 className="text-center">Higher Order Component-Demo</h1>
                 <hr /> 
-                <ContactListHOC contacts={this.state.contacts} />
+
+                <div className="row">
+                    <div className="col">
+                        <ContactListHOC contacts={this.state.contacts} />
+                    </div>
+                    <div className="col">
+                        Product Component Goes Here 
+                    </div>
+                </div>
             </div>
-        );
+        ); 
     }
 }
 
