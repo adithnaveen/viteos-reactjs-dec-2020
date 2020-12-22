@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 // version 1 
 /* function loading(OldComponent) {

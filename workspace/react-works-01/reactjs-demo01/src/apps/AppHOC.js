@@ -1,16 +1,21 @@
 import React, { Component } from 'react'
 import ContactListHOC from '../components/ContactListHOC'
-
+import ProductListHOC from '../components/ProductListHOC'
 
 class AppHOC extends Component {
     state = { 
-        contacts: [] 
+        contacts: [] , 
+        products: []
      }
 
     async componentDidMount(){
         let resp = await fetch("http://localhost:4000/contacts"); 
         let contacts = await resp.json(); 
         this.setState({contacts:contacts}); 
+
+        resp = await fetch("http://localhost:4000/products"); 
+        let products = await resp.json(); 
+        this.setState({products:products}); 
      }
 
     render() {
@@ -24,7 +29,7 @@ class AppHOC extends Component {
                         <ContactListHOC contacts={this.state.contacts} />
                     </div>
                     <div className="col">
-                        Product Component Goes Here 
+                       <ProductListHOC products ={this.state.products} />
                     </div>
                 </div>
             </div>
