@@ -4,8 +4,11 @@ import ReactDOM from 'react-dom'
 
 // import LifeCycle from './LifeCycle';
 
-import ContactsAppArray from './ContactsAppArray'; 
+// import ContactsAppArray from './components/ContactsAppArray'; 
 
-ReactDOM.render(<ContactsAppArray/>, document.getElementById('root'));
+// to invoke the data from end point 
+import AppJSON from './apps/AppJSON'; 
+
+ReactDOM.render(<AppJSON/>, document.getElementById('root'));
 
 

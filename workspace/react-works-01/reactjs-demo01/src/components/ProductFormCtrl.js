@@ -9,7 +9,7 @@ class ProductFormCtrl extends Component {
         desc:"", 
         make:"", 
         formErrors : {
-            pname:"Product Name Required", 
+            pname :"Product Name Required", 
             price : "Product Price Required", 
             desc:"Product Description Required", 
             make:"Product Make Required"
@@ -95,6 +95,7 @@ class ProductFormCtrl extends Component {
                 break; 
         }
 
+        // and updating the state, the render is implicitly called. 
             this.setState({[name]:value, formErrors})
 
     }

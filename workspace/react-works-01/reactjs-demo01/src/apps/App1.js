@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import 'bootstrap/dist/css/bootstrap.css'
 // import ProductForm from './components/ProductForm';
-import ProductFormCtrl from './components/ProductFormCtrl';
+import ProductFormCtrl from '../components/ProductFormCtrl';
 class App1 extends Component {
 
     render() {

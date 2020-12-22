@@ -8,7 +8,7 @@ class CounterApp extends Component {
     state = { 
         count:0 
      }
-     num=1; 
+    num=1; 
     constructor() {
         super(); 
         console.log("CounterApp.contructor");

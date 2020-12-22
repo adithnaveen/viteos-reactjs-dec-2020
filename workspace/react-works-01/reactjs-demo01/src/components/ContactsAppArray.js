@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
-import ContactCard from './components/ContactCard'
+import ContactCard from './ContactCard'
 
 class ContactsAppArray extends Component {
 

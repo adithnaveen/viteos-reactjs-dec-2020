@@ -6,7 +6,7 @@
             "gender": "Female",
             "email": "ngennings0@businessinsider.com",
             "phone": "657-602-6236",
-            "picture": "https://randomuser.me/api/portraits/female/1.jpg"
+            "picture": "https://randomuser.me/api/portraits/women/1.jpg"
         },
         {
             "id": 2,
@@ -14,7 +14,7 @@
             "gender": "Male",
             "email": "tavramovitz1@about.me",
             "phone": "887-975-1422",
-            "picture": "https://randomuser.me/api/portraits/female/2.jpg"
+            "picture": "https://randomuser.me/api/portraits/women/2.jpg"
         },
         {
             "id": 3,
@@ -22,7 +22,7 @@
             "gender": "Female",
             "email": "bspringtorp2@edublogs.org",
             "phone": "481-566-4074",
-            "picture": "https://randomuser.me/api/portraits/female/3.jpg"
+            "picture": "https://randomuser.me/api/portraits/women/3.jpg"
         },
         {
             "id": 4,
@@ -38,7 +38,7 @@
             "gender": "Female",
             "email": "kcurmi4@umn.edu",
             "phone": "288-728-2119",
-            "picture": "https://randomuser.me/api/portraits/female/5.jpg"
+            "picture": "https://randomuser.me/api/portraits/women/5.jpg"
         },
         {
             "id": 6,
@@ -62,7 +62,7 @@
             "gender": "Female",
             "email": "hbeddoe7@sciencedirect.com",
             "phone": "884-788-9496",
-            "picture": "https://randomuser.me/api/portraits/female/8.jpg"
+            "picture": "https://randomuser.me/api/portraits/women/8.jpg"
         },
         {
             "id": 9,
@@ -78,7 +78,7 @@
             "gender": "Female",
             "email": "fbelvin9@foxnews.com",
             "phone": "504-258-9113",
-            "picture": "https://randomuser.me/api/portraits/female/10.jpg"
+            "picture": "https://randomuser.me/api/portraits/women/10.jpg"
         },
         {
             "id": 11,
@@ -102,7 +102,7 @@
             "gender": "Female",
             "email": "ccostyc@xrea.com",
             "phone": "669-352-6084",
-            "picture": "https://randomuser.me/api/portraits/female/13.jpg"
+            "picture": "https://randomuser.me/api/portraits/women/13.jpg"
         },
         {
             "id": 14,
@@ -118,7 +118,7 @@
             "gender": "Female",
             "email": "dwroughtone@patch.com",
             "phone": "624-656-0055",
-            "picture": "https://randomuser.me/api/portraits/female/15.jpg"
+            "picture": "https://randomuser.me/api/portraits/women/15.jpg"
         }
     ]
 }
