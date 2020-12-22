@@ -120,5 +120,22 @@
             "phone": "624-656-0055",
             "picture": "https://randomuser.me/api/portraits/women/15.jpg"
         }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "pname": "Carrot",
+            "price": 12
+        },
+        {
+            "id": 2,
+            "pname": "Beans",
+            "price": 3
+        },
+        {
+            "id": 3,
+            "pname": "Coconut",
+            "price": 5
+        }
     ]
 }
