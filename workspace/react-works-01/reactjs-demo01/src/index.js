@@ -1,4 +1,6 @@
 import ReactDOM from 'react-dom'
+import 'bootstrap/dist/css/bootstrap.css'
+
 
 // import App1 from './App1';
 
@@ -7,8 +9,11 @@ import ReactDOM from 'react-dom'
 // import ContactsAppArray from './components/ContactsAppArray'; 
 
 // to invoke the data from end point 
-import AppJSON from './apps/AppJSON'; 
+// import AppJSON from './apps/AppJSON'; 
 
-ReactDOM.render(<AppJSON/>, document.getElementById('root'));
+// working with HOC 
+import AppHOC from './apps/AppHOC'
+
+ReactDOM.render(<AppHOC/>, document.getElementById('root'));
 
 

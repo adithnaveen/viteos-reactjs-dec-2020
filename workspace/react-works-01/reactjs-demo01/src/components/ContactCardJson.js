@@ -10,7 +10,7 @@ const ContactCardJson = ({ contact }) => (
             </div>
             <div className="col-md-8">
                 <div className="card-body">
-                    <h4 className="card-title">{contact.gender} | {contact.name}</h4>
+                    <h4 className="card-title">{contact.gender==='Male'?"Mr:":"Ms/Mrs:"} {contact.name}</h4>
                     <h4 className="card-text">{contact.email}</h4>
                     <h4 className="card-text">{contact.phone}</h4>
                 </div>

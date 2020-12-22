@@ -11,7 +11,7 @@
         {
             "id": 2,
             "name": "Tybalt",
-            "gender": "Male",
+            "gender": "Female",
             "email": "tavramovitz1@about.me",
             "phone": "887-975-1422",
             "picture": "https://randomuser.me/api/portraits/women/2.jpg"
