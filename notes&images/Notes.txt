@@ -239,6 +239,59 @@ res = hello(10, 20) => (<promise>) => {
 
 
 
+-------------------------------------------------
+
+
+const ContactCardJson = ({ contact }) => (....); 
+
+
+const ContactListJSON =({contacts}) => (
+    <div>
+        {contacts.map(c => <ContactCardJson contact={c} key={c.id} /> )}
+    </div>
+)
+
+
+
+class AppJSON extends Component {
+    state = { 
+        contacts:[]
+     }
+}
+
+
+
+
+
+const action ={type:"ADD_NAME", data = name}; 
+const action = {type:"DELETE_NAME", data=index}; 
+
+
+reducer = (state, action) => {
+	// some business logic 
+	
+	action.data 
+	action.type
+	action.company 
+}
+
+
+
+data: "Harry"
+type: "ADD_NAME"
+company:"Viteos"
+
+
+componentDidMount() {
+ 
+ 
+ }
+
+componentUnMount() {
+}
+
+
+
 
 
 

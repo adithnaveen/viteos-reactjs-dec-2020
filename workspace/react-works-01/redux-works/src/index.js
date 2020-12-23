@@ -1,57 +1,38 @@
+import React, { Component } from 'react'
+import ReactDom from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css'
-import './index.css'
 
-import {createStore} from 'redux';
+import ContactForm from './components/ContactForm'
+import ContactList from './components/ContactList'
 
-const initialState = ['Saad', 'Arun'];
+import { applyMiddleware, createStore } from 'redux'
+import rootReducer from './reducers/root-reducer'
+import { Provider } from 'react-redux'
 
-// reducer takes the state and returns updated state 
+import thunk from 'redux-thunk'; 
 
-const reducer =  (state = initialState, action) => {
-    switch (action.type) {
-        case "ADD_NAME" : 
-            return [...state , action.data ]
-        case "DELETE_NAME": 
-            let names = [...state]; 
-            names.splice(action.data, 1); 
-            return names; 
-        default : 
-            return state; 
+const store = createStore(rootReducer, applyMiddleware(thunk));
+
+class App extends Component {
+
+    render() {
+        return (
+            <Provider store={store}>
+                <div className="container">
+                    <h2 className="alert alert-info">React Redux Application</h2>
+                    <div className="row">
+                        <div className="col-md-5">
+                            <ContactForm />
+                        </div>
+                        <div className="col-md-7">
+                            <ContactList />
+                        </div>
+
+                    </div>
+                </div>
+            </Provider>
+        );
     }
 }
 
-const store = createStore(reducer); 
-window['store'] = store; 
-
-
- const submitHandler =(evt) => {
-     evt.preventDefault(); 
-     const name = document.getElementById("name").value; 
-     const action ={type:'ADD_NAME', data: name}
-     store.dispatch(action); 
-     document.getElementById("name").value = ''; 
-     document.getElementById("name").focus(); 
- }
-
- const updatedList = () => {
-     let names = store.getState(); 
-     let list = names.map((cname, index) =>  '<li class="list-group-item"><button  class="btn btn-danger" onclick="deleteName('+index+')">x</button>'+
-     cname
-     +'</li>')
-
-     let listOfNames = list.join(''); 
-     document.getElementById("namesList").innerHTML = listOfNames; 
- }
- 
- store.subscribe(updatedList); 
- 
- setTimeout(() => {
-     document.getElementById('myform').onsubmit = submitHandler; 
-     updatedList(); 
- }, 1000);  
-
-
- window['deleteName'] = (index) =>  {
-     const action = {type:"DELETE_NAME", data :  index}; 
-     store.dispatch(action); 
- }
+ReactDom.render(<App />, document.getElementById("root")); 
