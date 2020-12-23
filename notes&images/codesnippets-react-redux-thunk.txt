@@ -1,0 +1,373 @@
+Code Snippets for Redux React  with Thunk
+
+
+
+types.js
+----------------------------------------------------------------------------
+export const ADD_CONTACT = 'ADD_CONTACT';
+export const DELETE_CONTACT = 'DELETE_CONTACT';
+export const FETCH_CONTACTS = 'FETCH_CONTACTS';
+
+
+
+----------------------------------------------------------------------------
+
+contacts-action.js
+----------------------------------------------------------------------------
+import { FETCH_CONTACTS, ADD_CONTACT, DELETE_CONTACT } from "./types";
+
+const url = 'http://localhost:4000/contacts/';
+
+export const fetchContacts = () => {
+    return async (dispatch) => {
+        let resp = await fetch(url);
+        let contacts = await resp.json();
+        let action = { type: FETCH_CONTACTS, data: contacts};
+        dispatch(action);
+    }
+}
+
+export const addContact = (contact) => async (dispatch) => {
+    let resp = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(contact),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    let newContact = await resp.json();
+    dispatch({ type: ADD_CONTACT, data: newContact });
+}
+
+export const deleteContact = (id) => async (dispatch) => {
+    await fetch(url + id, { method: 'DELETE'});
+
+    dispatch({ type: DELETE_CONTACT, data: id });
+}
+----------------------------------------------------------------------------
+contacts-reducer.js
+----------------------------------------------------------------------------
+import { ADD_CONTACT, DELETE_CONTACT, FETCH_CONTACTS } from "../actions/types";
+
+export default (state = { contacts: [] }, action) => {
+
+    switch (action.type) {
+        case ADD_CONTACT:
+            {
+                let contacts = [...state.contacts];
+                // let newId = 1;
+
+                // if (contacts.length > 0) {
+                //     newId = Math.max(...contacts.map(c => c.id)) + 1
+                // }
+                // action.data.id = newId;
+                contacts.push(action.data);
+                return { ...state, contacts }
+            }
+
+        case DELETE_CONTACT:
+            {
+                let contacts = [...state.contacts];
+                let index = contacts.findIndex(c => c.id === action.data);
+                if (index !== -1) {
+                    contacts.splice(index, 1);
+                }
+                return { ...state, contacts }
+            }
+
+        case FETCH_CONTACTS:
+            {
+                return { ...state, contacts: action.data }
+            }
+
+        default:
+
+            return state;
+    }
+}
+----------------------------------------------------------------------------
+root-reducer.js 
+----------------------------------------------------------------------------
+
+import { combineReducers } from 'redux';
+import contactsReducer from './contacts-reducer';
+
+export default combineReducers({
+    contactsReducer
+})
+----------------------------------------------------------------------------
+ContactCard.js
+----------------------------------------------------------------------------
+import React from 'react';
+import { connect } from 'react-redux';
+import { deleteContact } from './actions/contacts-actions';
+
+const ContactCard = ({ contact, deleteContact }) => (
+    <div className="card" >
+
+        <div className="row">
+            <div className="col-md-4">
+                <img src={contact.picture} alt={contact.name}
+                    style={{ width: '100px', height: '100px', margin: '10px' }}
+                    className="card-img" />
+            </div>
+            <div className="col-md-8">
+                <div className="card-body">
+                    <h5 className="card-title">{contact.name}
+
+                        <button 
+                        onClick={
+                            ()=>{
+                                deleteContact(contact.id);
+                            }
+                        }
+                        className="btn btn-link float-right">&times;</button>
+
+                    </h5>
+                    <div className="card-text">{contact.email}</div>
+                    <div className="card-text">{contact.phone}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+);
+
+export default connect(null, {deleteContact})(ContactCard);
+----------------------------------------------------------------------------
+ContactForm.js
+----------------------------------------------------------------------------
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import { addContact} from './actions/contacts-actions';
+
+class ContactForm extends Component {
+
+    state = {
+        name: '',
+        email: '',
+        phone: '',
+        picture: '',
+        formErrors: {
+            name: 'Name is required',
+            email: 'Email is required',
+            phone: 'Phone is required'
+        },
+        errorMessages: ''
+    };
+
+    tfHandler = ({ target }) => {
+        let { name, value } = target;
+        let { formErrors } = this.state;
+
+        switch (name) {
+            case 'name':
+                if (!value || value.length === 0) {
+                    formErrors.name = 'Name is required';
+                }
+                else if (value.length < 3) {
+                    formErrors.name = 'Name must be at least 3 letters';
+                }
+                else {
+                    formErrors.name = '';
+                }
+                break;
+            case 'email':
+                if (!value || value.length === 0) {
+                    formErrors.email = 'Email is required';
+                }
+                else if (!value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+                    formErrors.email = 'Not a valid email id';
+                }
+                else {
+                    formErrors.email = '';
+                }
+                break;
+            case 'phone':
+                if (!value || value.length === 0) {
+                    formErrors.phone = 'Email is required';
+                }
+                else if (!value.match(/^\d{10,12}$/)) {
+                    formErrors.phone = 'Not a valid phone';
+                }
+                else {
+                    formErrors.phone = '';
+                }
+                break;
+            default:
+                break;
+        }
+        this.setState({ [name]: value, formErrors });
+    }
+
+    validateForm = formErrors => {
+        let valid = true;
+        Object.values(formErrors).forEach(val => valid = valid && val.length === 0);
+        return valid;
+    }
+
+    submitHandler = (evt) => {
+        evt.preventDefault();
+
+        let { formErrors } = this.state;
+        let errorMessages = Object.values(formErrors).map(
+            (err, index) => err.length === 0 ? null : <li key={index}>{err}</li>);
+        this.setState({ errorMessages })
+
+        if (this.validateForm(this.state.formErrors)) {
+            let { name, email, phone, picture } = this.state;
+            let contact = { name, email, phone, picture };
+            
+            this.props.addContact(contact);
+            
+            this.setState({
+                name: '',
+                email: '',
+                phone: '',
+                picture: '',
+                formErrors: {
+                    name: 'Name is required',
+                    email: 'Email is required',
+                    phone: 'Phone is required'
+                },
+                errorMessages: ''
+            });
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                <h3>Add a new contact</h3>
+                <form className="form" onSubmit={this.submitHandler}>
+                    <div className="form-group row">
+                        <label htmlFor="" className="control-label col-md-4">Name</label>
+                        <div className="col-md-8">
+                            <input value={this.state.name} onChange={this.tfHandler} type="text" className="form-control" name="name" />
+                        </div>
+                    </div>
+                    <div className="form-group row">
+                        <label htmlFor="" className="control-label col-md-4">Email address</label>
+                        <div className="col-md-8">
+                            <input value={this.state.email} onChange={this.tfHandler} type="text" className="form-control" name="email" />
+                        </div>
+                    </div>
+                    <div className="form-group row">
+                        <label htmlFor="" className="control-label col-md-4">Phone number</label>
+                        <div className="col-md-8">
+                            <input value={this.state.phone} onChange={this.tfHandler} type="text" className="form-control" name="phone" />
+                        </div>
+                    </div>
+                    <div className="form-group row">
+                        <label htmlFor="" className="control-label col-md-4">URL to picture/avatar</label>
+                        <div className="col-md-8">
+                            <input value={this.state.picture} onChange={this.tfHandler} type="text" className="form-control" name="picture" />
+                        </div>
+                    </div>
+                    <button className="btn btn-primary">Add to list</button>
+                </form>
+
+                <ul>
+                    {this.state.errorMessages}
+                </ul>
+            </div>
+        );
+    }
+}
+
+export default connect(null, {addContact})(ContactForm);
+----------------------------------------------------------------------------
+ContactList.js
+----------------------------------------------------------------------------
+import React, { Component } from 'react';
+import ContactCard from './ContactCard';
+import {connect} from 'react-redux';
+import {fetchContacts} from './actions/contacts-actions';
+
+class ContactList extends Component {
+
+    componentDidMount() {
+        this.props.getAllContacts();
+    }
+
+    render() {
+        let list = null;
+        let { contacts } = this.props;
+        console.log(contacts);
+        if (contacts instanceof Array && contacts.length > 0) {
+            list = contacts.map(c => <ContactCard contact={c} key={c.id} />)
+        }
+
+        return (
+            <div>
+                {list}
+            </div>
+        );
+    }
+}
+
+const stateAsProps = (reducers) => {
+    console.log(reducers);
+    return {
+        contacts: reducers.contactsReducer.contacts
+    }
+}
+const actionsAsProps = {
+    getAllContacts: fetchContacts
+};
+
+export default connect(stateAsProps, actionsAsProps)(ContactList);
+----------------------------------------------------------------------------
+index.js
+----------------------------------------------------------------------------
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.css';
+import ContactForm from './ContactForm';
+import ContactList from './ContactList';
+
+import { createStore, applyMiddleware } from 'redux';
+import rootReducer from './reducers/root-reducer';
+import { Provider } from 'react-redux';
+import { composeWithDevTools} from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+
+class App extends Component {
+
+    render() {
+        return (
+            <Provider store={store}>
+                <div className="container">
+                    <h1 className="alert alert-info">React-Redux Demo App</h1>
+                    <div className="row">
+                        <div className="col">
+                            <ContactForm />
+                        </div>
+                        <div className="col">
+                            <ContactList />
+                        </div>
+                    </div>
+                </div>
+            </Provider>
+        );
+    }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
