@@ -15,9 +15,11 @@ import 'bootstrap/dist/css/bootstrap.css'
 // import AppHOC from './apps/AppHOC'
 
 
-import VirtualDom from './apps/VirtualDom';
+// import Virtua lDom from './apps/VirtualDom';
 
-ReactDOM.render(<VirtualDom/>, document.getElementById('root'));
+// Component to show working of Multi-Component 
+import App from './multi-component/App'; 
+ReactDOM.render(<App/>, document.getElementById('root'));
 
 
 // to show working of DOM 
