@@ -147,6 +147,99 @@ Ajax call from the end point
  
 
 
+export default loading('contacts')(ContactListHOC);  
+export default loading('products')(ProductListHOC);  
+export default loading('employees')(EmployeeListHOC);  
+
+
+cost fun1 = (par1) => (par2) => ret_val; 
+
+fun('firstParam')('secondParam')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const loading = (OldComponent) =>  {
+	return (props) => {
+  	  	let output =  <OldComponent {...props} /> 
+ 	   	if(isEmpty(property)) {
+        	output =<p className="text-center">Loading... Please wait... </p>
+		}
+		return output; 
+	}
+}
+export default loading; 
+
+
+<ContactList contacts={contacts} />
+loading('contacts')(OldComponent)
+
+<ProductList products={product} />
+loading('products')(OldComponent)
+
+
+
+<ContactList contacts={contacts} />
+<ProductList products={product} />
+??????? 
+  
+'contacts' / 'prducts'
+const loading = (property) => (OldComponent) => (props) => {
+            let output =  <OldComponent {...props} /> 
+ 
+         
+            if(isEmpty(props[property])) {
+                output =<p className="text-center">Loading... Please wait... </p>
+            }
+            return output; 
+}
+export default loading; 
+
+
+
+
+
+function hello (a, b, c) {
+	
+}
+
+function hello (a, b) {
+	return function(c) {
+	
+	}
+}
+
+res = hello(10, 20, <promise>); 
+
+res = hello(10, 20) => (<promise>) => {
+}
+
+
+
+1. setting up rest server - making ajax call
+2. HOC -> Carrier Functions (Partial Invocation)
+3. Virtual DOM 
+
+
+
+
+
 
 
 
