@@ -9,7 +9,7 @@ import ContactForm from './ContactForm';
 class App extends Component {
 
     // all the functions go here 
-
+    // convert it so that we will have the data from end point 
     addContact = (contact) => {
         let { contacts } = this.state;
         contacts.unshift(contact);

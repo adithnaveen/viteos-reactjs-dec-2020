@@ -11,6 +11,7 @@ const ContactCard = ({ contact, deleteContact }) => (
                     <h4 className="card-title">{contact.name}</h4>
                     <h4 className="card-text">{contact.email}</h4>
                     <h4 className="card-text">{contact.phone}</h4>
+                    
                 <div className="col-md-1">
                     <button 
 
