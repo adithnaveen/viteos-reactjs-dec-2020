@@ -111,6 +111,20 @@
       "email": "dwroughtone@patch.com",
       "phone": "624-656-0055",
       "picture": "https://randomuser.me/api/portraits/women/15.jpg"
+    },
+    {
+      "name": "Gireesh",
+      "email": "gireesh@viteos.com",
+      "phone": "7732487343",
+      "picture": "/something",
+      "id": 16
+    },
+    {
+      "name": "Chintan",
+      "email": "chintan@gmail.com",
+      "phone": "9879898983",
+      "picture": "/testing",
+      "id": 17
     }
   ],
   "products": [
