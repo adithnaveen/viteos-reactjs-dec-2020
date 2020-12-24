@@ -48,7 +48,7 @@ class App extends Component {
                                 <ul className="list-group">
                                     <li className="list-group-item"><Link to="/">HOME</Link> </li>
                                     <li className="list-group-item"><Link to="/add-new-contact">ADD CONTACT</Link> </li>
-                                    <li className="list-group-item"><Link to="/view-contact">VIEW CONTACT</Link> </li>
+                                    <li className="list-group-item"><Link to="/view-contacts">VIEW CONTACT</Link> </li>
                                 </ul>
 
                             </div>
@@ -56,7 +56,7 @@ class App extends Component {
                                 <Switch>
                                     <Route path="/" exact={true} component={Home} />
                                     <Route path="/add-new-contact" exact={true} component={ContactForm} />
-                                    <Route path="/view-contact" exact component={ContactList} />
+                                    <Route path="/view-contacts" exact component={ContactList} />
                                     <Route path="/not-found" exact={true} component={NotFound} />
                                     
                                     {/* if you want optional param then suffix with ?  */}

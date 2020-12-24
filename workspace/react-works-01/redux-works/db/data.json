@@ -113,25 +113,11 @@
       "picture": "https://randomuser.me/api/portraits/women/15.jpg"
     },
     {
-      "name": "Gireesh",
-      "email": "gireesh@viteos.com",
-      "phone": "7732487343",
-      "picture": "/something",
+      "name": "Naveen",
+      "email": "adith.naveen@gmail.com",
+      "phone": "9900524255",
+      "picture": "https://avatars0.githubusercontent.com/u/8098738?s=460&u=a0cb0fe533d1834825ddd04d31e2fd3454640778&v=4",
       "id": 16
-    },
-    {
-      "name": "Chintan",
-      "email": "chintan@gmail.com",
-      "phone": "9879898983",
-      "picture": "/testing",
-      "id": 17
-    },
-    {
-      "name": "Arun",
-      "email": "arun@test.com",
-      "phone": "9090909090",
-      "picture": "/arun",
-      "id": 18
     }
   ],
   "products": [

@@ -4,15 +4,17 @@ import { getContactById } from '../actions/contacts-actions';
 
 
 class ContactDetails extends Component {
-
-
     componentDidMount() {
         let { id } = this.props.match.params
         this.props.getContact(id);
     }
 
+    componentDidCatch() {
+        // your exeptions can go here 
+    }
+
     render() {
-        // console.log(this);
+        console.log(this);
         let { contact } = this.props;
         if (!contact) contact = {}
 

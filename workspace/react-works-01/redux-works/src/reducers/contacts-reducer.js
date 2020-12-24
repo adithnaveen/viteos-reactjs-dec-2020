@@ -2,7 +2,7 @@ import { ADD_CONTACT, DELETE_CONTACT, FETCH_CONTACTS, GET_CONTACT } from "../con
 
 
 
-export default (state = { contacts: [] }, action) => {
+export default (state = { contacts: []}, action) => {
 
     switch (action.type) {
         case ADD_CONTACT:
