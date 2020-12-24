@@ -11,6 +11,7 @@ import { Provider } from 'react-redux'
 
 import thunk from 'redux-thunk'; 
 
+// working with Single Page Application 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 class App extends Component {
