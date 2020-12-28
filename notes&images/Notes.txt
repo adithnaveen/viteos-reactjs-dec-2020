@@ -292,6 +292,145 @@ componentUnMount() {
 
 
 
+npm i react-redux json-server 
+
+https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
+
+npm i redux-devtools-extension redux-thunk 
+
+
+
+
+React 
+React-Redux 
+
+SPA 
+Routing 
+
+Testing 	
+	JESTS / ENZYME 
+
+
+.html 
+RestEnd Points 
+
+
+- Multi Components in React 
+- Core Redux App 
+- React & Redux 
+
+	
+
+
+
+1. Create component ContactDetails 
+2. have a new path 
+	<Route path="/contact-details/:id" component={ContactDetails} /> 
+3. In ContactCard -> Name to be changed to Link 
+4. GoTo Rest server -> make a fetch request 
+	update constants.js 
+	update contacts-actions.js 
+	update contacts-reducer.js 
+
+5. come back to ContactDetails -> show the data which is got from Redux 
+6. When new ContactCard is added then redirect to ContactList 
+
+----------------------------------
+Error Handling - https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html
+JWT with route  - https://jasonwatmore.com/post/2017/12/07/react-redux-jwt-authentication-tutorial-example
+Testing With JEST & Enzyme 
+Introduction to Hooks 
+Loading Lazy components in Reacts
+Dynamic loading of component 
+
+
+project work 
+---------------------------------------- 
+hi all
+ just a heads up to get started with the work. 
+
+1. lets have a github repo / fork from the one which i’ve created 
+2. take the HTML files which arun has shared, and make that as components 
+3. we should have 1 component which can hit to the end point and get the data 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------
+Error Handling 
+JWT with route 
+Testing With JEST & Enzyme 
+Introduction to Hooks 
+Loading Lazy components in Reacts
+Dynamic loading of component 
+
+1. Testing With JEST & Enzyme 
+TDD -
+	 Jest - FaceBook, create-react-app (xxx.test.js)
+	 	> https://jestjs.io/docs/en/tutorial-react
+		> https://jestjs.io/docs/en/expect
+	 Enzyme - AirBnb 
+		 https://airbnb.io/projects/enzyme/
+	 	https://enzymejs.github.io/enzyme/
+	 	https://enzymejs.github.io/enzyme/docs/api/
+
+YourComponent.js 
+
+const YourComponent = () => {
+	return (
+		<div>
+			<h2>Hello From Your Component </h2>
+		</div>
+	)
+}
+
+MyComponent.js 
+class MyComponent extends Component {
+	render() {
+		return(
+			<div>
+				<h2>Welcome to ReactJS</h2> <hr /> 
+				<YourComponent />  
+			</div>
+		)
+	}
+}
+
+Jest <- MyComponent
+
+			<div>
+				<h2>Welcome to ReactJS</h2> <hr /> 
+		 		<div>
+		 			<h2>Hello From Your Component </h2>
+		 		</div>
+			</div>
+ 
+
+MyComponent 
+	<div>
+		<h2>Welcome to ReactJS</h2> <hr /> 
+		<YourComponent />  
+	</div>
+
+
+
+
 
 
 
