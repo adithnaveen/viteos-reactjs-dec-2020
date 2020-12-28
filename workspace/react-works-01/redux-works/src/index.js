@@ -9,10 +9,13 @@ import { applyMiddleware, createStore } from 'redux'
 import rootReducer from './reducers/root-reducer'
 import { Provider } from 'react-redux'
 
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 import thunk from 'redux-thunk'; 
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+// const store = createStore(rootReducer, applyMiddleware(thunk));
 
+const store = createStore(rootReducer, composeWithDevTools( applyMiddleware(thunk)))
 class App extends Component {
 
     render() {

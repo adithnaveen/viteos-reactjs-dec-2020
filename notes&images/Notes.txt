@@ -352,12 +352,7 @@ hi all
 1. lets have a github repo / fork from the one which i’ve created 
 2. take the HTML files which arun has shared, and make that as components 
 3. we should have 1 component which can hit to the end point and get the data 
-
  
-
-
-
-
 --------------------------------------------------------------------------
 Error Handling - https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html
 JWT with Route - 
@@ -485,8 +480,9 @@ we can host this on any server like python / apache / tomcat / node
 
 
 
+for debugging 
 
-
+https://stackoverflow.com/questions/33527653/babel-6-regeneratorruntime-is-not-defined
 
 
 
